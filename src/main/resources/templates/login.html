@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+</head>
+<body>
+
+<h2>Login</h2>
+
+<!-- Display error message if invalid credentials -->
+
+<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+    <div>
+        <label for="name">Username</label>
+        <input type="text" id="name" th:field="*{name}" required/>
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" id="password" th:field="*{password}" required/>
+    </div>
+
+    <button type="submit">Login</button>
+</form>
+<div th:if="${successMessage}">
+        <p style="color: green;" th:text="${successMessage}"></p>
+    </div>
+
+    <!-- Optionally, display error message if available -->
+    <div th:if="${errorMessage}">
+        <p style="color: red;" th:text="${errorMessage}"></p>
+    </div>
+
+    <!-- Add other content here -->
+    <a href="/profile">Go to Profile</a>
+</body>
+</html>
+
+
+

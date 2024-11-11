@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Doctor List</title>
+</head>
+<body>
+    <h1>List of Doctors</h1>
+
+    <form action="#" method="get">
+        <label for="specialization">Specialization:</label>
+        <input type="text" name="specialization" id="specialization">
+        
+        <label for="experience">Experience (>=):</label>
+        <input type="number" name="experience" id="experience">
+
+        <button type="submit">Filter</button>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Specialization</th>
+                <th>Experience</th>
+                <th>Availability</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="doctor : ${doctors}">
+                <td th:text="${doctor.name}"></td>
+                <td th:text="${doctor.specialization}"></td>
+                <td th:text="${doctor.experience}"></td>
+                <td th:text="${doctor.availabilitySchedule}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

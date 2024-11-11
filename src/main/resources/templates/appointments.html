@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Your Appointments</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Your Appointments</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="appointment : ${appointments}">
+                    <td th:text="${appointment.doctor.name}"></td>
+                    <td th:text="${appointment.appointmentDate}"></td>
+                    <td th:text="${appointment.status}"></td>
+        <td>
+    <form th:action="@{/appointments/{id}/cancel(id=${appointment.id})}" method="post" style="display:inline;">
+        <input type="hidden" name="_method" value="delete"/>
+        <button type="submit" class="btn btn-danger">Cancel</button>
+    </form>
+</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
