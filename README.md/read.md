@@ -24,8 +24,8 @@ An IDE like Eclipse or IntelliJ IDEA
 Step 1: Clone the Repository
 bash
 Copy code
-git clone <repository_url>
-cd <project_folder>
+git clone 
+
 Step 2: Configure Database
 In application.properties, update your database credentials:
 
@@ -37,15 +37,12 @@ spring.datasource.password=your_db_password
 spring.jpa.hibernate.ddl-auto=update
 Step 3: Run the Application
 bash
-Copy code
-mvn clean install
-mvn spring-boot:run
+
 Step 4: Access the Application
 Signup Page: http://localhost:4444/signup
 Login Page: http://localhost:4444/login
 Profile Page: http://localhost:4444/profile
-API Documentation
-API documentation is available via Postman. Here are some key endpoints:
+
 
 1. User Signup
 2.login

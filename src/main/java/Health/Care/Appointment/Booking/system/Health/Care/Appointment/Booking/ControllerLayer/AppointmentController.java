@@ -30,22 +30,21 @@ import Health.Care.Appointment.Booking.system.Health.Care.Appointment.Booking.Us
 
 	    @GetMapping
 	    public String viewAppointments(Model model) {
-	        List<Appointment> appointments = appointmentService.getUserAppointments(1L);  // Assuming userId = 1
+	        List<Appointment> appointments = appointmentService.getUserAppointments(1L);  
 	        model.addAttribute("appointments", appointments);
 	        return "appointments";
 	    }
 	    @GetMapping("/book")
 	    public String showBookingForm(Model model) {
 	        model.addAttribute("appointment", new Appointment());
-	        model.addAttribute("doctors", doctorService.getAllDoctors()); // Fetch all doctors
-	        model.addAttribute("users", userService.getAllUsers());
-	        // Fetch all users (or current user)
+	        model.addAttribute("doctors", doctorService.getAllDoctors()); 
+	        
 	        return "book-appointment";
 	    }
 	    @PostMapping("/book")
 	    public String bookAppointment(@ModelAttribute("appointment") Appointment appointment) {
 	        appointmentService.saveAppointment(appointment);
-	        return "redirect:/appointments"; // Redirect to the appointments page or confirmation
+	        return "redirect:/appointments"; 
 	    }
 
 	   
@@ -53,6 +52,6 @@ import Health.Care.Appointment.Booking.system.Health.Care.Appointment.Booking.Us
 	    @PostMapping("/{id}/cancel")
 	    public String cancelAppointment(@PathVariable Long id) {
 	        appointmentService.cancelAppointment(id);
-	        return "redirect:/appointments"; // Redirect to list of appointments
+	        return "redirect:/appointments"; 
 	    }
 }

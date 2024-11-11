@@ -18,7 +18,7 @@ public class DoctorController {
 	@Autowired
     private DoctorService doctorService;
 
-    // GET request to load the doctor registration page
+    
 	@GetMapping("/register")
 	public String showRegistrationForm(Model model) {
 	    model.addAttribute("doctor", new Doctor());
@@ -31,7 +31,7 @@ public class DoctorController {
 	    return "redirect:/doctors/list";
 	}
 
-    // GET request to list doctors
+    
     @GetMapping("/list")
     public String listDoctors(@RequestParam(value = "specialization", required = false) String specialization,
                               @RequestParam(value = "experience", required = false) Integer experience,

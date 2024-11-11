@@ -66,7 +66,7 @@ public class UserService {
         userRepository.save(user);
     }
    
-   
+ 
     public void updateUserProfile(Long userId, String name, String email, String phoneNumber) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("User not found"));

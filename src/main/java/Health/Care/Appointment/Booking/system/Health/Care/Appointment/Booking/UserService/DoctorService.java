@@ -14,22 +14,22 @@ public class DoctorService {
 	@Autowired
     private DoctorRepository doctorRepository;
 
-    // Save new doctor
+    
     public Doctor saveDoctor(Doctor doctor) {
         return doctorRepository.save(doctor);
     }
 
-    // Fetch all doctors
+
     public List<Doctor> getAllDoctors() {
         return doctorRepository.findAll();
     }
 
-    // Fetch doctors by specialization
+   
     public List<Doctor> getDoctorsBySpecialization(String specialization) {
         return doctorRepository.findBySpecialization(specialization);
     }
 
-    // Fetch doctors by experience
+    
     public List<Doctor> getDoctorsByExperience(int experience) {
         return doctorRepository.findByExperienceGreaterThanEqual(experience);
     }
